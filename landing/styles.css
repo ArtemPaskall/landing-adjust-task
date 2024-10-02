@@ -44,13 +44,6 @@
   position: relative;
 }
 
-#firstname-validation, #phone-validation {
-  position: absolute;
-  right: -10px;
-  top: -13px;
-  color: red;
-}
-
 #HEADLINE43 > #header-ladi-headline.ladi-headline{
   font-size: 79px ;
 }
