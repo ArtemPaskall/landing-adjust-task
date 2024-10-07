@@ -331,7 +331,7 @@ body #HEADLINE12 > .ladi-headline {
   font-weight: 900;
 }
 
-.spanish-flag {
+.mexican-flag {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -355,7 +355,7 @@ body #HEADLINE12 > .ladi-headline {
 }
 
 .flag-container img {
-  width: 155px;
+  width: 180px;
   height: auto;
   border-radius: 10px;
 }
@@ -680,4 +680,12 @@ body .ladi-image-bottom-block {
   transform: translate(-50%);
   text-align: center;
   width: 350px;
+}
+
+body #HEADLINE3 > .ladi-headline {
+  text-decoration: underline;
+}
+
+body #IMAGE19 > .ladi-image > .ladi-image-background {
+  height: 250px;
 }

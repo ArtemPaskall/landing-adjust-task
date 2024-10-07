@@ -20,7 +20,9 @@
 }
 
 .retinol-header-2 {
-  font-size: 52px;
+  position: relative;
+  text-align: right;
+  font-size: 102px;
   font-weight: 900;
   margin-top: 10px;
 }
