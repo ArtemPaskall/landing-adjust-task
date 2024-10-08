@@ -1,0 +1,145 @@
+#userForm {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 18px;
+  padding: 30px 0;
+  height: 730px;
+  background-color: #e5eeff;
+}
+
+#userForm input{
+  width: 350px;
+  height: 55px;
+  border-radius: 35px;
+  padding: 10px 20px;
+  font-size: 18px;
+}
+
+#userForm button{
+  width: 350px;
+  height: 55px;
+  border-radius: 20px;
+  padding: 10px;
+
+  font-size: 16px;
+  font-weight: bold;
+  background-color: rgb(135, 1, 189);
+  color: #fff;
+  cursor: pointer;
+}
+
+#userForm button:hover{
+  color: rgb(135, 1, 189);
+  background-color: #fff;
+  transition: all 0.3s;
+}
+
+#required-notation {
+  font-size: 10px;
+  color:  rgb(171, 8, 8);
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.form-product-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 350px;
+  margin-bottom: 35px;
+}
+
+.form-product-name {
+  position: relative;
+  left: 10px;
+  top: -10px;
+  font-size: 46px;
+  font-weight: 900;
+  color: rgb(135, 1, 189);
+}
+
+.form-product-wrapper img {
+  position: relative;
+  left: -20px;
+  width: 220px;
+}
+
+.form-header {
+  font-size: 30px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: rgb(135, 1, 189);
+}
+
+.header-underscore {
+  width: 350px; 
+  height: 4px;
+  background-color: rgb(135, 1, 189);
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.price-wrapper {
+  position: relative;
+  right: 20px;
+  background-color: #fff;
+  padding: 35px 10px;
+  border-radius: 10px;
+}
+
+.form-price-header {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 900;
+  color: rgb(135, 1, 189);
+  text-transform: uppercase;
+}
+
+.form-old-price {
+  margin-top: 20px;
+  background-color: #f10c0c;
+  font-size: 26px;
+  color:  #fff;
+  font-weight: 900;
+  padding: 5px 8px;
+  border-radius: 10px;
+  width: 150px;
+}
+
+.line-through {
+  position: relative;
+  width: 140px;
+  height: 1px;
+  background-color: #f10c0c;
+  transform: rotate(-25deg);
+  top: -20px;
+  left: 5px;
+
+}
+
+.form-new-price {
+  margin-top: 20px;
+  background-color: #0ebc0e;
+  font-size: 26px;
+  color:  #fff;
+  font-weight: 900;
+  padding: 5px 8px;
+  border-radius: 10px;
+  width: 150px;
+}
+
+.form-prod-fon {
+  position: absolute;
+  top: 250px;
+  left: -10px;
+  transform: rotate(-250deg);
+}
+
+.form-prod-fon img {
+  width: 270px;
+}
+
