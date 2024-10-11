@@ -472,7 +472,7 @@ con
         // Якщо пройшло менше 5 хвилин, запобігаємо відправленню
         const remainingTime = Math.ceil((300000 - (currentTime - lastSubmitTime)) / 1000);
         const messageDiv = document.getElementById('message');
-        messageDiv.textContent = `Please wait ${remainingTime} seconds before submitting again.`;
+        messageDiv.textContent = `Por favor, espera ${remainingTime} segundos antes de enviar de nuevo.`;
         messageDiv.style.display = 'block'; // Показуємо повідомлення
 
         function clearMessage() {
