@@ -93,7 +93,7 @@
 <div id="SECTION5" class='ladi-section'><div class='ladi-section-background'></div>
   
 
-<form id="userForm" novalidate>
+<form action="api.php" method="POST" id="userForm" novalidate>
   <div class="form-header">¡apresúrate a ordenar!</div>
   <div class="header-underscore"></div>
   <div class="form-product-wrapper">
@@ -111,12 +111,18 @@
     </div>
   </div>
   <div class="input-wrapper">
+    <div id="firstname-validation">*</div>
     <input type="text" id="firstname" placeholder="Name" name="firstname" required>
   </div>
   <div class="input-wrapper">
+    <div id="phone-validation">*</div>
     <input type="tel" id="phone" placeholder="Phone" name="phone" required>
   </div>
+  <input type="hidden" name="pixel" value="<?=$_GET['pixel'];?>">
+  <input type="hidden" name="sub_id3" value="{sub_id3}">
   <button type="submit">Submit</button>
+  <div class="spinner-wrapper"> <div class="spinner" id="spinner"></div></div>
+  <div id="message"></div>
 </form>
 
 
@@ -426,6 +432,72 @@ con
   });
 </script>
 
+<script>
+  document.getElementById('userForm').addEventListener('submit', function(event) {
+    event.preventDefault(); 
+
+    // Отримання даних з форми
+    const firstname = document.getElementById('firstname').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+
+    // Валідація форми
+    let isValid = true;
+    let firstnameNotValidMessage = '';
+    let phoneNotValidMessage = '';
+
+    if (!firstname) {
+      isValid = false;
+      firstnameNotValidMessage += 'El nombre es obligatorio';
+    }
+
+    const phonePattern = /^\+\d{12}$/;
+    if (!phonePattern.test(phone)) {
+      isValid = false;
+      phoneNotValidMessage += 'El número de teléfono debe tener 12 dígitos';
+    }
+
+    const firstnameErrorElement = document.getElementById('firstname-validation');
+    const phoneErrorElement = document.getElementById('phone-validation');
+
+    // Обробка валідації
+    if (!isValid) {
+      firstnameErrorElement.textContent = firstnameNotValidMessage === '' ? '*' : firstnameNotValidMessage;
+      phoneErrorElement.textContent = phoneNotValidMessage === '' ? '*' : phoneNotValidMessage;
+    } else {
+      // Якщо форма пройшла валідацію, перевіряємо час останньої відправки
+      const currentTime = new Date().getTime();
+      let lastSubmitTime = localStorage.getItem('lastSubmitTime');
+
+      if (lastSubmitTime && (currentTime - lastSubmitTime < 300000)) {
+        // Якщо пройшло менше 5 хвилин, запобігаємо відправленню
+        const remainingTime = Math.ceil((300000 - (currentTime - lastSubmitTime)) / 1000);
+        const messageDiv = document.getElementById('message');
+        messageDiv.textContent = `Please wait ${remainingTime} seconds before submitting again.`;
+        messageDiv.style.display = 'block'; // Показуємо повідомлення
+
+        function clearMessage() {
+          messageDiv.style.display = 'none';
+        }
+
+        // Приховуємо повідомлення через 5 секунд
+        setTimeout(clearMessage, 5000);
+        return;
+      }
+
+      // Оновлюємо час останньої відправки
+      lastSubmitTime = currentTime;
+      localStorage.setItem('lastSubmitTime', lastSubmitTime); // Зберігаємо час у локальному сховищі
+
+      // Якщо форма проходить всі перевірки, відправляємо її
+      firstnameErrorElement.textContent = '*';
+      phoneErrorElement.textContent = '*';
+      this.submit(); // Відправляємо форму
+
+      const spinner = document.getElementById('spinner');
+      spinner.style.display = 'block'; // Показуємо спінер
+    }
+  });
+</script>
 
 
 </body></html>

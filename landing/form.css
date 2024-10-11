@@ -143,3 +143,36 @@
   width: 270px;
 }
 
+#firstname-validation, #phone-validation {
+  color: red;
+  text-align: right;
+  margin-bottom: 3px;
+}
+
+.spinner-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.spinner { 
+  display: none; /* Сховати спіннер за замовчуванням */
+  border: 8px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #353637;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto; /* Центрування спіннера */
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+#message {
+  display:none; 
+  color: red; 
+  margin-top: 10px;
+}
