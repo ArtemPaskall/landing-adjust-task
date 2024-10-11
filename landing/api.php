@@ -6,13 +6,13 @@ if (!empty($_POST['phone'])) {
 
 function send_the_order ($post){
     $params=array(
-        'goal_id' => 83,
+        'goal_id' => $post['goal_id'],
         'aff_click_id' => '156484efwe4re98b4rev4wr84',
         'firstname' => $post['firstname'],
         'phone' => $post['phone'],
-        'sub_id1' => 'traff',
-        'sub_id2' => 'fb',
-        'sub_id3' =>  $post['sub_id3'],
+        'sub_id1' => $post['sub_id1'],
+        'sub_id2' => $post['sub_id2'],
+        'sub_id3' => $post['sub_id3'],
     );
 
     $url = 'http://wapi.leadbit.com/api/pub/new-order/_66279fccd3b10256089676';

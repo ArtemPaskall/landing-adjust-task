@@ -118,6 +118,11 @@
     <div id="phone-validation">*</div>
     <input type="tel" id="phone" placeholder="Phone" name="phone" required>
   </div>
+
+  <input type="hidden" name="goal_id" value="83">
+  <input type="hidden" name="sub_id1" value="traff">
+  <input type="hidden" name="sub_id2" value="fb">
+
   <input type="hidden" name="pixel" value="<?=$_GET['pixel'];?>">
   <input type="hidden" name="sub_id3" value="{sub_id3}">
   <button type="submit">Submit</button>
