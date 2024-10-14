@@ -7,7 +7,7 @@
   <title>¡Gracias!</title>
 </head>
 <body>
-
   <h1><?=$_GET['name'];?>, ¡Gracias por tu compra!</h1>
+  <img src="https://cdn.icon-icons.com/icons2/1506/PNG/512/emblemok_103757.png" alt="success massage">
 </body>
 </html>

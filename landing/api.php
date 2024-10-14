@@ -6,16 +6,15 @@ if (!empty($_POST['phone'])) {
 
 function send_the_order ($post){
     $params=array(
-        'goal_id' => $post['goal_id'],
-        'aff_click_id' => '156484efwe4re98b4rev4wr84',
-        'firstname' => $post['firstname'],
-        'phone' => $post['phone'],
-        'sub_id1' => $post['sub_id1'],
-        'sub_id2' => $post['sub_id2'],
-        'sub_id3' => $post['sub_id3'],
+        'goal_id' =>      $post['goal_id'],
+        'aff_click_id' => $post['aff_click_id'],
+        'firstname' =>    $post['firstname'],
+        'phone' =>        $post['phone'],
+        'sub_id1' =>      $post['sub_id1'],
+        'sub_id2' =>      $post['sub_id2']
     );
 
-    $url = 'http://wapi.leadbit.com/api/pub/new-order/_66279fccd3b10256089676';
+    $url = 'https://tracking.affscalecpa.com/api/v2/affiliate/leads?api-key=adsbdb45dhnjcbd4567ghjdd';
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -30,6 +29,12 @@ function send_the_order ($post){
 
     $array=json_decode($return, true);
 
-    header('Location: success.php?pixel='.$_POST['pixel'].'&name='.$_POST['firstname']); 
+    if ($httpcode == 200) {
+        header('Location: success.php?pixel=' . $post['pixel'] . '&name=' . $post['firstname']);
+        exit;
+    } else {
+        header('Location: error.php');
+        exit;
+    }
   }
 ?>
